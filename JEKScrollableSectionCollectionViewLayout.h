@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGSize footerReferenceSize;
 @property (nonatomic) UIEdgeInsets sectionInset;
 
+- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section;
+
 /**
  The scroll view settings that will be applied to each horisontal section. Can be overridden
  per section by implementing `collectionView:layout:scrollViewConfigurationForSection:`.
@@ -68,8 +70,6 @@ extern NSString * const JEKCollectionElementKindSectionBackground;
  rows instead of being scrollable horizontally.
  */
 - (BOOL)collectionView:(UICollectionView *)collectionView layout:(JEKScrollableSectionCollectionViewLayout*)collectionViewLayout shouldUseFlowLayoutInSection:(NSInteger)section;
-- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section;
-
 /**
  Scroll view delegate functions for horizontal sections
  */

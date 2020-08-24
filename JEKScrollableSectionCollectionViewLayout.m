@@ -103,6 +103,14 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
     return YES;
 }
 
+- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section
+{
+    if (section >= 0 && section < _sections.count) {
+        return _sections[section].offset.x;
+    }
+    return 0;
+}
+
 - (void)prepareLayout
 {
     [super prepareLayout];
@@ -260,16 +268,6 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
         return [DELEGATE collectionView:self.collectionView layout:self shouldUseFlowLayoutInSection:section];
     }
     return NO;
-}
-
-- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section
-{
-    if (DELEGATE_RESPONDS_TO_SELECTOR(@selector(collectionViewHorizontalContentOffset:))) {
-        if (section >= 0 && section < _sections.count) {
-            return _sections[section].offset.x;
-        }
-    }
-    return 0;
 }
 
 #pragma mark - UIScrollViewDelegate
