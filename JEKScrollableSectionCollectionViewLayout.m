@@ -262,6 +262,16 @@ NSString * const JEKCollectionElementKindSectionBackground = @"JEKCollectionElem
     return NO;
 }
 
+- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section
+{
+    if (DELEGATE_RESPONDS_TO_SELECTOR(@selector(collectionViewHorizontalContentOffset:))) {
+        if (section >= 0 && section < _sections.count) {
+            return _sections[section].offset.x;
+        }
+    }
+    return 0;
+}
+
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

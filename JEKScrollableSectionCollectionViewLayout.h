@@ -68,6 +68,7 @@ extern NSString * const JEKCollectionElementKindSectionBackground;
  rows instead of being scrollable horizontally.
  */
 - (BOOL)collectionView:(UICollectionView *)collectionView layout:(JEKScrollableSectionCollectionViewLayout*)collectionViewLayout shouldUseFlowLayoutInSection:(NSInteger)section;
+- (CGFloat)collectionViewHorizontalContentOffset:(NSInteger) section;
 
 /**
  Scroll view delegate functions for horizontal sections
